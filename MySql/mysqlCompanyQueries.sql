@@ -28,3 +28,10 @@ WHERE employees.job_id=jobs.job_id
   AND employees.department_id=departments.department_id
   AND departments.location_id=locations.location_id
   AND city='London';
+
+-- 5. Write a query to get the department name and number of employees in the department.
+SELECT department_name, COUNT(employee_id) AS num_employees
+FROM departments
+LEFT JOIN employees
+	ON departments.department_id=employees.department_id
+GROUP BY department_name;
