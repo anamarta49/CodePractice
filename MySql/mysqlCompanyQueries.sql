@@ -19,3 +19,12 @@ FROM employees
 WHERE salary>(SELECT salary
               FROM employees
               WHERE last_name='Bell');
+
+-- 4. Write a query to find the name (first_name and last_name), job,
+-- department ID and name of all employees that work in London.
+SELECT CONCAT(first_name, " ", last_name) AS name, job_title, employees.department_id, department_name
+FROM employees, jobs, departments, locations
+WHERE employees.job_id=jobs.job_id
+  AND employees.department_id=departments.department_id
+  AND departments.location_id=locations.location_id
+  AND city='London';
