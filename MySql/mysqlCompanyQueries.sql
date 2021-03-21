@@ -8,3 +8,6 @@ ORDER BY name;
 
 -- 2. Write a query to find the manager ID and the salary of the lowest-paid
 -- employee for that manager.
+SELECT manager_id, MIN(salary) AS lowest_employee_sal
+FROM employees
+GROUP BY manager_id;
